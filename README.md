@@ -7,6 +7,8 @@ There are three main components:
 * cipherEncrypt: Encrypts the message using the Vigenere Cipher.
 * cipherDecrypt: Decrypts the message using the Vigenere Cipher.
 
+cipherEncrypt and cipherDecrypt are designed to work independent of the driver class, so the driver class can be replaced with another.
+
 ## Installation
 
 Compile all the .java files.
