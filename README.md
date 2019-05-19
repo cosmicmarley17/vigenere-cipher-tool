@@ -1,5 +1,11 @@
 # Vigenere Cipher Tool
-Encrypts and decrypts user-entered messages using the Vigenere Cipher.
+
+## About
+Vigenere Cipher Tool is a program written in Java that encrypts and decrypts user-entered messages using the Vigenere Cipher. 
+There are three main components:
+* vigenereCipherTool: the driver class. Sends output to the console and handles user input.
+* cipherEncrypt: Encrypts the message using the Vigenere Cipher.
+* cipherDecrypt: Decrypts the message using the Vigenere Cipher.
 
 ## Installation
 
