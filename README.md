@@ -11,7 +11,7 @@ cipherEncrypt and cipherDecrypt are designed to work independent of the driver c
 
 ## Installation
 
-Compile all the .java files.
+Download and compile all the .java files.
 
 ## Usage
 
