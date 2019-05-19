@@ -1,4 +1,4 @@
-# vigenere-cipher-tool
+# Vigenere Cipher Tool
 Encrypts and decrypts user-entered messages using the Vigenere Cipher.
 
 ## Installation
@@ -7,7 +7,7 @@ Compile all the .java files.
 
 ## Usage
 
-Run the driver class in a console environment.
+Run the driver class, "vigenereCipherTool", in a console environment.
 For example, in a BASH command line:
 
 ```bash
