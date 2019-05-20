@@ -21,6 +21,7 @@ For example, in a BASH command line:
 ```bash
 java vigenereCipherTool
 ```
+Alternatively the cipherEncrypt and cipherDecrypt files could be used with a new driver class other than vigenereCipherTool.
 
 ## Contributing
 
