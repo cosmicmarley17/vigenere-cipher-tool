@@ -63,7 +63,7 @@ public class cipherEncrypt
       currentLetter = plaintext.charAt(i); //the current letter being encrypted.
       currentKey = password.charAt(passwordPlace); //the current letter in the password being used.
 
-
+      
       //(if indexOf() doesn't find the char, it returns -1 as the index.)
       if(upperAlphabet.indexOf(currentLetter) > -1) //if the plaintext letter is uppercase
       {
@@ -99,18 +99,13 @@ public class cipherEncrypt
         ciphertext += currentLetter;
       }
 
-
-
+      
       passwordPlace++; //go to the next letter in the password.
       if(passwordPlace >= password.length()) { passwordPlace = 0; } //loop back to the first letter of the password if the end has been reached.
 
     }
-
-
-
+    
     return ciphertext;
   }
-
-
-
+  
 }
