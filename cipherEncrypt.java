@@ -26,7 +26,6 @@ public class cipherEncrypt
 
   /**
    * Gets the plaintext message.
-   * Currently used for debugging.
    * @return the plaintext message.
   **/
   public String getPlaintext()
