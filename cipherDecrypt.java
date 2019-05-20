@@ -43,7 +43,6 @@ public class cipherDecrypt
   }
 
 
-
   /**
    * Applies the Vigenere Cipher to decrypt the ciphertext.
    * @return the decrypted message.
@@ -101,16 +100,12 @@ public class cipherDecrypt
         plaintext += currentLetter;
       }
 
-
-
+      
       passwordPlace++; //go to the next letter in the password.
       if(passwordPlace >= password.length()) { passwordPlace = 0; } //loop back to the first letter of the password if the end has been reached.
-
     }
 
     return plaintext;
   }
-
-
 
 }
