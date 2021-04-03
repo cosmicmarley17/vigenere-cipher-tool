@@ -1,5 +1,4 @@
 # Vigenere Cipher Tool
-https://github.com/Sorcerer17/vigenere-cipher-tool
 
 ## About
 Vigenere Cipher Tool is a program written in Java that encrypts and decrypts user-entered messages using the Vigenere Cipher. 
