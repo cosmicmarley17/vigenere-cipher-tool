@@ -23,9 +23,5 @@ java vigenereCipherTool
 ```
 Alternatively the cipherEncrypt and cipherDecrypt files could be used with a new driver class other than vigenereCipherTool.
 
-## Contributing
-
-This is a personal project, so I won't be accepting pull requests. However, feel free to fork the repo for your own use!
-
 ## License
 GNU General Public License v3.0. See LICENSE for details.
