@@ -63,19 +63,15 @@ public class cipherEncrypt
       currentLetter = plaintext.charAt(i); //the current letter being encrypted.
       currentKey = password.charAt(passwordPlace); //the current letter in the password being used.
 
-      
+
       //(if indexOf() doesn't find the char, it returns -1 as the index.)
       if(upperAlphabet.indexOf(currentLetter) > -1) //if the plaintext letter is uppercase
       {
         shiftAmount = lowerAlphabet.indexOf(currentKey);
         letterPlace = upperAlphabet.indexOf(currentLetter);
 
-        cipherPlace = letterPlace + shiftAmount; //shift it to another uppercase letter
+        cipherPlace = (letterPlace + shiftAmount) % 26; //shift it to another uppercase letter
 
-        if(cipherPlace > 25) //if it gets shifted outside of the alphabet
-        {
-          cipherPlace = cipherPlace - 26; //loop it back to the beginning of the alphabet
-        }
         ciphertext += upperAlphabet.charAt(cipherPlace); //add the encrypted letter to the ciphertext string
       }
 
@@ -84,12 +80,8 @@ public class cipherEncrypt
         shiftAmount = lowerAlphabet.indexOf(currentKey);
         letterPlace = lowerAlphabet.indexOf(currentLetter);
 
-        cipherPlace = letterPlace + shiftAmount; //shift it to another uppercase letter
+        cipherPlace = (letterPlace + shiftAmount) % 26; //shift it to another lowercase letter
 
-        if(cipherPlace > 25) //if it gets shifted outside of the alphabet
-        {
-          cipherPlace = cipherPlace - 26; //loop it back to the beginning of the alphabet
-        }
         ciphertext += lowerAlphabet.charAt(cipherPlace); //add the encrypted letter to the ciphertext string
       }
 
@@ -99,13 +91,13 @@ public class cipherEncrypt
         ciphertext += currentLetter;
       }
 
-      
+
       passwordPlace++; //go to the next letter in the password.
       if(passwordPlace >= password.length()) { passwordPlace = 0; } //loop back to the first letter of the password if the end has been reached.
 
     }
-    
+
     return ciphertext;
   }
-  
+
 }
