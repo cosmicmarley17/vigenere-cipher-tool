@@ -100,9 +100,8 @@ public class cipherDecrypt
         plaintext += currentLetter;
       }
 
-      
-      passwordPlace++; //go to the next letter in the password.
-      if(passwordPlace >= password.length()) { passwordPlace = 0; } //loop back to the first letter of the password if the end has been reached.
+
+      passwordPlace = (passwordPlace + 1) % password.length(); //cycle to the next letter in the password.
     }
 
     return plaintext;
