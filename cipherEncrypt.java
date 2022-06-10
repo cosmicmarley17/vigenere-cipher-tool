@@ -50,6 +50,7 @@ public class cipherEncrypt
   {
     String ciphertext = "";
 
+    String currentAlphabet = ""; // which alphabet is being used for the current letter (lowercase or uppercase)
     char currentLetter; //the character being encrypted.
     char currentKey; //the character being used in the password.
     int passwordPlace = 0; //the index of the character in the password to use.
@@ -67,30 +68,24 @@ public class cipherEncrypt
       //(if indexOf() doesn't find the char, it returns -1 as the index.)
       if(upperAlphabet.indexOf(currentLetter) > -1) //if the plaintext letter is uppercase
       {
-        shiftAmount = lowerAlphabet.indexOf(currentKey);
-        letterPlace = upperAlphabet.indexOf(currentLetter);
-
-        cipherPlace = (letterPlace + shiftAmount) % 26; //shift it to another uppercase letter
-
-        ciphertext += upperAlphabet.charAt(cipherPlace); //add the encrypted letter to the ciphertext string
+          currentAlphabet = upperAlphabet;
       }
-
       else if(lowerAlphabet.indexOf(currentLetter) > -1) //if the plaintext letter is lowercase
       {
-        shiftAmount = lowerAlphabet.indexOf(currentKey);
-        letterPlace = lowerAlphabet.indexOf(currentLetter);
-
-        cipherPlace = (letterPlace + shiftAmount) % 26; //shift it to another lowercase letter
-
-        ciphertext += lowerAlphabet.charAt(cipherPlace); //add the encrypted letter to the ciphertext string
+          currentAlphabet = lowerAlphabet;
       }
-
       else //if the plaintext letter is not a letter.
       {
-        passwordPlace--; //don't increase the place in the password. (negates increasing it later.)
+        //whitespaces and special characters are unchanged, skip to next character
         ciphertext += currentLetter;
+        continue;
       }
+      shiftAmount = lowerAlphabet.indexOf(currentKey);
+      letterPlace = currentAlphabet.indexOf(currentLetter);
 
+      cipherPlace = (letterPlace + shiftAmount) % 26; //shift it to another uppercase letter
+
+      ciphertext += currentAlphabet.charAt(cipherPlace); //add the encrypted letter to the ciphertext string
 
       passwordPlace = (passwordPlace + 1) % password.length(); //cycle to the next letter in the password.
 

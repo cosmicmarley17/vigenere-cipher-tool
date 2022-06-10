@@ -51,6 +51,7 @@ public class cipherDecrypt
   {
     String plaintext = "";
 
+    String currentAlphabet = ""; // which alphabet is being used for the current letter (lowercase or uppercase)
     char currentLetter; //the character being decrypted.
     char currentKey; //the character being used in the password.
     int passwordPlace = 0; //the index of the character in the password to use.
@@ -68,40 +69,32 @@ public class cipherDecrypt
       //(if indexOf() doesn't find the char, it returns -1 as the index.)
       if(upperAlphabet.indexOf(currentLetter) > -1) //if the ciphertext letter is uppercase
       {
-        shiftAmount = lowerAlphabet.indexOf(currentKey);
-        letterPlace = upperAlphabet.indexOf(currentLetter);
-
-        plaintextPlace = letterPlace - shiftAmount; //shift it to another uppercase letter
-
-        if(plaintextPlace < 0) //if it gets shifted outside of the alphabet
-        {
-          plaintextPlace = plaintextPlace + 26; //loop it back to the end of the alphabet
-        }
-        plaintext += upperAlphabet.charAt(plaintextPlace); //add the decrypted letter to the plaintext string
+          currentAlphabet = upperAlphabet;
       }
-
       else if(lowerAlphabet.indexOf(currentLetter) > -1) //if the ciphertext letter is lowercase
       {
-        shiftAmount = lowerAlphabet.indexOf(currentKey);
-        letterPlace = lowerAlphabet.indexOf(currentLetter);
-
-        plaintextPlace = letterPlace - shiftAmount; //shift it to another uppercase letter
-
-        if(plaintextPlace < 0) //if it gets shifted outside of the alphabet
-        {
-          plaintextPlace = plaintextPlace + 26; //loop it back to the end of the alphabet
-        }
-        plaintext += lowerAlphabet.charAt(plaintextPlace); //add the decrypted letter to the plaintext string
+          currentAlphabet = lowerAlphabet;
       }
-
       else //if the ciphertext letter is not a letter.
       {
-        passwordPlace--; //don't increase the place in the password. (negates increasing it later.)
+        //whitespaces and special characters are unchanged, skip to next character
         plaintext += currentLetter;
+        continue;
+      }
+      shiftAmount = lowerAlphabet.indexOf(currentKey);
+      letterPlace = currentAlphabet.indexOf(currentLetter);
+
+      plaintextPlace = letterPlace - shiftAmount; //shift it to another uppercase letter
+
+      if(plaintextPlace < 0) //if it gets shifted outside of the alphabet
+      {
+        plaintextPlace += 26; //loop it back to the end of the alphabet
       }
 
+      plaintext += currentAlphabet.charAt(plaintextPlace); //add the decrypted letter to the plaintext string
 
       passwordPlace = (passwordPlace + 1) % password.length(); //cycle to the next letter in the password.
+
     }
 
     return plaintext;
